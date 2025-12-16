@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const WS_URL = import.meta.env.VITE_WS_URL!;
 
 
+
 type Message = {
   id: string;
   text: string;
@@ -195,7 +196,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <input
                     value={inputRoom}
                     onChange={(e) => setInputRoom(e.target.value)}
@@ -302,7 +303,7 @@ export default function App() {
                     className={`flex ${msg.self ? "justify-end" : "justify-start"}`}
                   >
                     <div
-                      className={`max-w-[80%] px-4 py-2.5 rounded-2xl wrap-break-word text-sm leading-relaxed shadow-md ${
+                      className={`max-w-[80%] px-4 py-2.5 rounded-2xl wrap-break-word text-sm overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] leading-relaxed shadow-md ${
                         msg.self
                           ? "bg-blue-600 text-white rounded-br-none"
                           : "bg-neutral-800 text-neutral-200 rounded-bl-none border border-white/5"
